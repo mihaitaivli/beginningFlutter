@@ -12,17 +12,9 @@ class Home extends StatelessWidget {
         title: Text('Awesome App'),
         centerTitle: true,
       ),
-      body: Container(
-        color: Colors.grey[400],
-        padding: EdgeInsets.symmetric(
-          horizontal: 20.0,
-          vertical: 30.0,
-        ),
-        margin: EdgeInsets.symmetric(
-          horizontal: 20.0,
-          vertical: 30.0
-        ),
-        child: Text('some text'),
+      body: Padding(
+        child: Text('hello world'),
+        padding: EdgeInsets.all(30.0),
       ),
       floatingActionButton: FloatingActionButton(
         child: Text('Click'),
