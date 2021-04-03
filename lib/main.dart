@@ -12,21 +12,24 @@ class Home extends StatelessWidget {
         title: Text('Awesome App'),
         centerTitle: true,
       ),
-      body: Row(
-        children: <Widget>[
-          Text('hi there'),
-          TextButton(
-            onPressed: (){},
-            child: Text('click inside row child'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('simple text'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('elevated button'),
           ),
           Container(
+            padding: EdgeInsets.all(50.0),
             color: Colors.amber,
-            padding: EdgeInsets.all(30.0),
-            child: Text('some text inside a container'),
+            child: Image.asset(
+              'assets/stars.jpg',
+              width: 150.0,
+            ),
           ),
         ],
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.end,
       ),
       floatingActionButton: FloatingActionButton(
         child: Text('Click'),
