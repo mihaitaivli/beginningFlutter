@@ -21,6 +21,16 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/kitten.jpeg'),
+                radius: 150.0,
+              ),
+            ),
+            Divider(
+              height: 50.0,
+              color: Colors.grey[800],
+            ),
             Text(
               'NAME',
               style: TextStyle(
@@ -39,6 +49,44 @@ class Home extends StatelessWidget {
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'CLEARANCE LEVEL ',
+              style: TextStyle(
+                // fontSize: 30.0,
+                color: Colors.grey,
+                letterSpacing: 1.5,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'All access - Master sneaker',
+              style: TextStyle(
+                // fontSize: 30.0,
+                color: Colors.amberAccent[200],
+                letterSpacing: 1.5,
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              children: [
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[400],
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  'alexandra.ivli.1@gmail.com',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                    letterSpacing: 1.5,
+
+                  ),
+                )
+              ],
             ),
           ],
         ),
