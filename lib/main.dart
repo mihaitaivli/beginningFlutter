@@ -17,14 +17,14 @@ class Home extends StatelessWidget {
         elevation: 0.0, // removes the shadow
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/kitten.jpeg'),
-                radius: 150.0,
+                radius: 120.0,
               ),
             ),
             Divider(
