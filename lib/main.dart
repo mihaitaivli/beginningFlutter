@@ -22,8 +22,8 @@ class _QuoteListState extends State<QuoteList> {
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
       child: Column(
         children: [
-          Text('${quote.text}'),
-          Text('${quote.author}'),
+          Text(quote.text),
+          Text(quote.author),
         ],
       ),
     );
