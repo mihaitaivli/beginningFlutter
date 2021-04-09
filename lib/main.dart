@@ -17,6 +17,17 @@ class _QuoteListState extends State<QuoteList> {
     Quote(text: 'Golang reigns supreme', author: 'me')
   ];
 
+  Widget quoteTemplate(Quote quote) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+      child: Column(
+        children: [
+          Text('${quote.text}'),
+          Text('${quote.author}'),
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +38,8 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('${quote.text}'),
-              Text('Author: ${quote.author}'),
-            ],
-          );
-        }).toList()
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: quotes.map((quote) => quoteTemplate(quote)).toList()
       ),
     );
   }
