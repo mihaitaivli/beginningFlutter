@@ -12,19 +12,42 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes = [
-    Quote(text: 'Flutter is great', author: 'Google'),
-    Quote(text: 'Dart is amazing', author: 'unknown'),
-    Quote(text: 'Golang reigns supreme', author: 'me')
+    Quote(text: 'Flutter is great, it enables very rapid prototyping and ensures styling is following the official guides.', author: 'Google'),
+    Quote(text: 'Dart is amazing but I can\'t understand what are the unique advantages it brings over other OO languages.', author: 'unknown'),
+    Quote(text: 'Golang reigns supreme. Enough said.', author: 'me')
   ];
 
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
-      child: Column(
-        children: [
-          Text(quote.text),
-          Text(quote.author),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text,
+              style: TextStyle(
+                fontSize: 20.0,
+                fontStyle: FontStyle.italic,
+                color: Colors.grey[600]
+              ),
+            ),
+            SizedBox(height: 6.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  quote.author,
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.grey[500],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
