@@ -23,6 +23,15 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.grey[850],
         elevation: 0.0, // removes the shadow
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.grey[800],
+        child: Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            clearanceLevel += 1;
+          });
+        },
+      ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
         child: Column(
