@@ -23,8 +23,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
   @override
   void initState() {
     super.initState();
-    print('initState ran');
     getData();
+    print('don\'tt wait for getData() to finish');
   }
 
   @override
