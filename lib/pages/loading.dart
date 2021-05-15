@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-
+import 'dart:convert';
 
 class Loading extends StatefulWidget {
   @override
@@ -10,9 +10,9 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
   getData() async {
-    var response = await get(url);
-    var data = response.body;
-    print(data);
+    Response response = await get(url);
+    Map objMap = jsonDecode(response.body);
+    print(objMap['id']);
   }
 
   @override
