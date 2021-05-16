@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:sl_fe/services/world_time.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -8,25 +7,10 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  var url = Uri.parse('https://worldtimeapi.org/api/timezone/Europe/London');
-  getTime() async {
-    Response response = await get(url);
-    Map data = jsonDecode(response.body);
-
-    String datetime_string = data['datetime'];
-    DateTime now = DateTime.parse(datetime_string);
-
-    String offset_string = data['utc_offset'];
-    int hours = int.tryParse(offset_string.substring(0,3));
-
-    DateTime localTime = now.add(Duration(hours: hours));
-    print(localTime);
-  }
-
   @override
   void initState() {
     super.initState();
-    getTime();
+    WorldTime.getTime();
   }
 
 
