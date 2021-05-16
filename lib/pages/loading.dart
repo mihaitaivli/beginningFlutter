@@ -12,7 +12,15 @@ class _LoadingState extends State<Loading> {
   getTime() async {
     Response response = await get(url);
     Map data = jsonDecode(response.body);
-    print(data['datetime']);
+
+    String datetime_string = data['datetime'];
+    DateTime now = DateTime.parse(datetime_string);
+
+    String offset_string = data['utc_offset'];
+    int hours = int.tryParse(offset_string.substring(0,3));
+
+    DateTime localTime = now.add(Duration(hours: hours));
+    print(localTime);
   }
 
   @override
