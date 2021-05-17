@@ -10,16 +10,22 @@ class WorldTime {
 
   WorldTime({ this.friendlyLocation, this.flag, this.locale });
     Future<void> getTime() async {
-    Response response = await get(Uri.parse('$host$locale'));
-    Map data = jsonDecode(response.body);
+      try {
+        Response response = await get(Uri.parse('$host$locale'));
+        Map data = jsonDecode(response.body);
 
-    String datetime_string = data['datetime'];
-    DateTime now = DateTime.parse(datetime_string);
+        String datetime_string = data['datetime'];
+        DateTime now = DateTime.parse(datetime_string);
 
-    String offset_string = data['utc_offset'];
-    int hours = int.tryParse(offset_string.substring(0,3));
+        String offset_string = data['utc_offset'];
+        int hours = int.tryParse(offset_string.substring(0,3));
 
-    DateTime localTime = now.add(Duration(hours: hours));
-    time = localTime.toString();
+        DateTime localTime = now.add(Duration(hours: hours));
+        time = localTime.toString();
+      }
+      catch (e) {
+        print('There was an error while fetching time $e');
+        time = 'There was an error while getting data';
+      }
   }
 }
