@@ -1,5 +1,6 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String friendlyLocation; // friendly location name
@@ -21,7 +22,7 @@ class WorldTime {
         int hours = int.tryParse(offset_string.substring(0,3));
 
         DateTime localTime = now.add(Duration(hours: hours));
-        time = localTime.toString();
+        time = DateFormat.jm().format(localTime);
       }
       catch (e) {
         print('There was an error while fetching time $e');
